@@ -15,5 +15,7 @@ docker-run:
 		$(IMAGE_NAME) \
 		/bin/bash
 jupyter:
-	jupyter lab --ip=0.0.0.0 --allow-root --port=$(JUPYTER_PORT) --NotebookApp.token='nvidia-docker-anaconda'
+	jupyter lab --ip=0.0.0.0 --allow-root --port=$(JUPYTER_PORT) \
+		--NotebookApp.token='nvidia-docker-anaconda' \
+		--NotebookApp.terminado_settings='{"shell_command": ["/bin/bash"]}'
 
