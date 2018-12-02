@@ -1,6 +1,7 @@
 
 PROJECT_NAME=my_project
 JUPYTER_PORT=8888
+TENSORBOARD_PORT=6006
 IMAGE_NAME=$(PROJECT_NAME)-image
 CONTAINER_NAME=$(PROJECT_NAME)-container
 
@@ -11,6 +12,7 @@ docker-run:
 	docker run -it --rm --runtime=nvidia \
 		--name $(CONTAINER_NAME) \
 		-p $(JUPYTER_PORT):$(JUPYTER_PORT) \
+		-p $(TENSORBOARD_PORT):$(TENSORBOARD_PORT) \
 		-v `pwd`:/work \
 		$(IMAGE_NAME) \
 		/bin/bash
